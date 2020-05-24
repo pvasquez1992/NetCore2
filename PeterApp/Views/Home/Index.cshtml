@@ -1,4 +1,4 @@
-﻿@model List<string>
+﻿@model List<Pais>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -14,15 +14,7 @@
         <p>
             @env.EnvironmentName
         </p>
-        <ul>
-
-            @foreach (var item in Model)
-            {
-                <li>@item</li>
-            }
-
-        </ul>
-
+    
     </div>
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">

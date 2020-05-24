@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using PeterApp.Data;
+using PeterApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
@@ -8,12 +12,19 @@ namespace PeterApp.Services
 {
     public class PaisRepository : IPaisRepository
     {
-        public IList<string> GetPaises()
+        private readonly ApplicationDbContext _dbContext;
+        public PaisRepository(ApplicationDbContext dbcontex) {
+
+            _dbContext = dbcontex;
+        
+        }
+
+
+        public IList<Pais> GetPaises()
         {
-            return new List<string>()
-            {
-                "El Salvador", "Peru", "Canada", "Estados Unidos", "Mexico", "Guatemala"
-            };
+
+            var result = _dbContext.Paises.ToList();
+            return  result;
         }
     }
 }
