@@ -23,7 +23,7 @@ namespace PeterWebApi.Controllers
             return result;
         }
 
-        [HttpGet("{id}", Name = "ProvinciaCreado")]
+        [HttpGet("{id}", Name = "ProvinciaById")]
         public IActionResult GetById(int id)
         {
             var Provincia = _dbContext.Provincias.FirstOrDefault(x => x.Id == id);
@@ -43,7 +43,7 @@ namespace PeterWebApi.Controllers
             {
                 _dbContext.Provincias.Add(Provincia);
                 _dbContext.SaveChanges();
-                return new CreatedAtRouteResult("ProvinciaCreado", new { id = Provincia.Id }, Provincia);
+                return new CreatedAtRouteResult("ProvinciaById", new { id = Provincia.Id }, Provincia);
             }
             return BadRequest(ModelState);
 
