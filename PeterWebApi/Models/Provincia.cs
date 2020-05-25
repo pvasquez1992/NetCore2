@@ -10,6 +10,9 @@ namespace PeterWebApi.Models
 {
     public class Provincia
     {
+        public Provincia() {
+            Pais = new Pais();
+        }
         public int Id { get; set; }
         public string Nombre { get; set; }
         [ForeignKey("Pais")]

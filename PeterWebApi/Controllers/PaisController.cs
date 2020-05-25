@@ -31,7 +31,7 @@ namespace PeterWebApi.Controllers
         [HttpGet("{id}", Name = "paisCreado")]
         public IActionResult GetById(int id)
         {
-            var pais = _dbContext.Paises.FirstOrDefault(x => x.Id == id);
+            var pais = _dbContext.Paises.Include(x => x.Provincias).FirstOrDefault(x => x.Id == id);
 
             if (pais == null)
             {
@@ -83,6 +83,5 @@ namespace PeterWebApi.Controllers
 
         }
 
-        //https://www.youtube.com/watch?v=GFRRFw4IIoI
     }
 }

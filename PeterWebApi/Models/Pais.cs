@@ -8,6 +8,10 @@ namespace PeterWebApi.Models
 {
     public class Pais
     {
+        public Pais() {
+
+            Provincias = new List<Provincia>();
+        }
         public int Id { get; set; }
         [StringLength(50)]
         public string Nombre { get; set; }
